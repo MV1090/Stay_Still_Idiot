@@ -10,7 +10,8 @@ public class PlayerController : NetworkBehaviour
     private Vector2 _moveInput;
     private Vector2 _lookInput;
     private bool _isSprinting;
-    
+    private bool _controlsEnabled = false;
+
     [Header("Player")]
     [Tooltip("Move speed of the character in m/s")]
     public float MoveSpeed = 2.0f;
@@ -311,12 +312,12 @@ public class PlayerController : NetworkBehaviour
     
     private void FixedUpdate()
     {
-        if (!IsOwner) return;
+        if (!IsOwner || !_controlsEnabled) return;
 
         Move();
         GroundCheck();
         Jump();
-    }      
+    }
     //private void OnDrawGizmosSelected()
     //{
     //    Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
@@ -330,4 +331,20 @@ public class PlayerController : NetworkBehaviour
     //        new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
     //        GroundedRadius);
     //}
+
+    [ClientRpc]
+    public void SetSpawnPositionClientRpc(Vector3 pos, Quaternion rot)
+    {
+        if (!IsOwner) return;
+       
+        if (cc == null) cc = GetComponent<CharacterController>();
+       
+        if (cc != null) cc.enabled = false;
+
+        transform.SetPositionAndRotation(pos, rot);
+        Debug.Log($"[Client] InitializeClientRpc applied spawn pos {pos}");
+                
+        if (cc != null) cc.enabled = true;
+        _controlsEnabled = true;
+    }
 }

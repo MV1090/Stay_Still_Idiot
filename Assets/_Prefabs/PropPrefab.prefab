@@ -17313,7 +17313,6 @@ GameObject:
   - component: {fileID: -3231616881493686555}
   - component: {fileID: -524582452498901877}
   - component: {fileID: -8842681165453937116}
-  - component: {fileID: -2780816250416540388}
   m_Layer: 0
   m_Name: PropPrefab
   m_TagString: Untagged
@@ -18147,19 +18146,6 @@ MonoBehaviour:
     m_Bits: 64
   _detectionRange: 25
   unlocked: 
---- !u!114 &-2780816250416540388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8042046992634174761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036a03601ce0f324b8ac15b9aae7034d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!1 &9171099238365283704
 GameObject:
   m_ObjectHideFlags: 0

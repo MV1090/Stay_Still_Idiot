@@ -17312,7 +17312,6 @@ GameObject:
   - component: {fileID: -3121386164982446710}
   - component: {fileID: -3231616881493686555}
   - component: {fileID: -524582452498901877}
-  - component: {fileID: -2117929576706138269}
   - component: {fileID: 5246297393332887219}
   m_Layer: 0
   m_Name: HunterPreFab
@@ -18127,18 +18126,6 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &-2117929576706138269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8042046992634174761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f3f592d97335d4b93d3e55036e8b45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5246297393332887219
 MonoBehaviour:
   m_ObjectHideFlags: 0
