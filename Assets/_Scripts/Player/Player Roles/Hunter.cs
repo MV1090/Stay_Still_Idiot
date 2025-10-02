@@ -1,17 +1,29 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class Hunter : PlayerRole
-
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] Weapon weaponInstance;
+
+    public override void OnNetworkSpawn()
+    {
+        //NetworkObjectReference weaponRef = weaponInstance.GetComponent<NetworkObject>();
+        //if (weaponInstance.TryGetComponent(out NetworkObject weaponObj))
+        //{
+        //    weaponObj.ChangeOwnership(OwnerClientId);
+        //}
+            
+    }
+    public override void FirstAction(bool isPressed = false)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void PlayFirstActionVisuals(bool isPressed)
+    { DetectHit(); }
+
+    private void DetectHit()
     {
-        
+        weaponInstance.DetectHit();
     }
 }
