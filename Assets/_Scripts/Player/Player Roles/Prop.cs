@@ -143,7 +143,6 @@ public class Prop : PlayerRole
             Debug.Log("Can select prop");            
         }
     }
-
     public override void PlaySecondActionLocalFeedback(bool isPressed) 
     {
         base.PlaySecondActionLocalFeedback();
@@ -182,5 +181,27 @@ public class Prop : PlayerRole
         int idxInUnlocked = Mathf.Max(0, unlocked.IndexOf(current));
         int prev = unlocked[(idxInUnlocked - 1 + unlocked.Count) % unlocked.Count];
         SetDisguiseServerRpc(prev);
-    }   
+    }
+
+    public void OnHit()
+    {
+        if (IsOwner)
+        {
+            PropDeathServerRpc();
+        }
+    }
+
+    [ClientRpc]
+    private void PropDeathClientRpc(ClientRpcParams rpcParams = default)
+    {
+        if (!IsServer) Destroy(gameObject);
+    }
+
+    [ServerRpc]
+    private void PropDeathServerRpc(ServerRpcParams rpcParams = default)
+    {       
+        PropDeathClientRpc();
+        Destroy(gameObject);
+    }
+        
 }

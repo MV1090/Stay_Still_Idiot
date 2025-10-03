@@ -75,4 +75,27 @@ public class Weapon : MonoBehaviour
 
         isRotating = false;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent<Prop>(out Prop prop))
+        {
+            if(destructionCount == 0)
+            {
+                prop.OnHit();
+                destructionCount++;                
+                return;
+            }            
+        }
+
+        else if(other.TryGetComponent<Destructible>(out Destructible obj))
+        {        
+            if(destructionCount == 0)
+            {
+                obj.OnHit();
+                destructionCount++;
+                return;
+            }                   
+        }
+    }
 }

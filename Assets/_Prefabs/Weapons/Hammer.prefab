@@ -3648,7 +3648,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3666,7 +3666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e1bafd21ae5114c816aa889b6350f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
   weaponCollider: {fileID: 8631211504428819171}
   destructionCount: 0
   rotateDuration: 0.2
